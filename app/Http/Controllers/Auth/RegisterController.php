@@ -41,7 +41,6 @@ class RegisterController extends Controller
 
     public function register(Request $request){
         if($request->isMethod('post')){
-
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
@@ -51,6 +50,13 @@ class RegisterController extends Controller
                 'mail' => $mail,
                 'password' => bcrypt($password),
             ]);
+
+            $request->validate([
+                'username' => ' required | min:2 | max:12',
+                'mail' => ' required | unique:mail | mail | min:5 | max:40',
+                'password' => ' required | alpha | min:8 | max:20',
+                'password_confirmation' => ' required | alpha | same:password | min:8 | max:20',
+                 ]);
 
             return redirect('added');
         }

@@ -44,8 +44,8 @@ class RegisterController extends Controller
             // バリデーションの設定
             $request->validate([
                 'username' => ' required | min:2 | max:12',
-                'mail' => ' required | unique:mail | mail | min:5 | max:40',
-                'password' => ' required | alpha | min:8 | max:20',
+                'mail' => ' required | unique:users | email | min:5 | max:40',
+                'password' => ' required | alpha_dash | min:8 | max:20',
                 // 'password_confirmation' => ' required | alpha | same:password | min:8 | max:20',
                  ]);
 

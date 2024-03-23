@@ -22,17 +22,22 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
-            </div>
+        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+        <div class="head-name">
+            <p>{{ Auth::user()->username }}さん</p>
+            <!-- <div class="menu-trigger"></div> -->
+            <button type="button" class="menu-btn">
+            <span class="inn"></span>
+            </button>
+        <nav class="menu">
+            <ul>
+              <li><a href="/top">ホーム</a></li>
+              <li><a href="/profile">プロフィール</a></li>
+              <li><a href="/logout">ログアウト</a></li>
+            </ul>
+        </nav>
+            <img src="{{ asset('images/icon1.png')}}">
+        </div>
         </div>
     </header>
     <div id="row">
@@ -58,7 +63,7 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="../../../jquery-3.7.1.min.js"></script>
+    <script src="../../../jquery-3.7.1.min.js"></script>
 </body>
 </html>

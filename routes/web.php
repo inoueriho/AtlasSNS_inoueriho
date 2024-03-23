@@ -32,9 +32,16 @@ Route::post('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 
+//プロフィールの編集画面表示
 Route::get('/profile','UsersController@profile');
+//プロフィール更新
+Route::get('/profile/{id}', [UsersController::class, 'update'])->name('profile.update');
+Route::post('/profile/{id}', [UsersController::class, 'update'])->name('profile.update');
 
 Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+
+//ログアウト機能
+Route::get('/logout','Auth\LoginController@logout');

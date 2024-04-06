@@ -31,12 +31,12 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+Route::post('/top/post','PostsController@postCreate');
 
 //プロフィールの編集画面表示
 Route::get('/profile','UsersController@profile');
 //プロフィール更新
-Route::get('/profile/{id}', [UsersController::class, 'update'])->name('profile.update');
-Route::post('/profile/{id}', [UsersController::class, 'update'])->name('profile.update');
+Route::post('/profile/update-form', 'UsersController@update');
 
 Route::get('/search','UsersController@index');
 

@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-{!! Form::open(['url' => '/profile']) !!}
+{!! Form::open(['url' => '/profile/update-form']) !!}
 @csrf
 {{Form::hidden('id',Auth::user()->id)}}
 <img class="profile-icon" src="{{ asset('images/icon1.png')}}" alt="プロフィールアイコン">
@@ -10,7 +10,7 @@
 <!-- ユーザー -->
   <div class="ct-clock">
     <label for="name">user name</label>
-    <input type="text" name="usernama" id="name" value="{{ Auth::user()->username }}">
+    <input type="text" name="username" id="name" value="{{ Auth::user()->username }}">
   </div>
 <!-- メール -->
   <div class="ct-clock">
@@ -24,7 +24,7 @@
   </div>
 <!-- パスワードの確認 -->
   <div class="ct-clock">
-    <label for="pass-c">password comfirm</label>
+    <label for="pass-c">password confirm</label>
     <input type="password" name="pass-c" id="pass-c">
   </div>
 <!-- 自己紹介文 -->
@@ -40,6 +40,7 @@
 </div>
   <!-- 更新ボタン -->
 {{ Form::submit('更新',['class' => 'update-button']) }}
+<!-- <a class="btn btn-primary" href="/top">更新</a> -->
 </div>
 
 

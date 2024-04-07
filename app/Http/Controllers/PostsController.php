@@ -21,7 +21,7 @@ class PostsController extends Controller
         ]);
 
         $user_id=Auth::user()->id;
-        $post = $request->input('newPost');
+        $post = $request->input('post');
 
         Post::create([
             'user_id'=>$user_id,

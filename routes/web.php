@@ -31,7 +31,9 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+//投稿の登録処理
 Route::post('/top/post','PostsController@postCreate');
+// Route::post('/top/post','PostsController@postUpdate');
 
 //プロフィールの編集画面表示
 Route::get('/profile','UsersController@profile');

@@ -12,8 +12,12 @@ use Auth;
 class PostsController extends Controller
 {
     //
-    public function index(){
-        return view('posts.index');
+    public function index(Post $post){
+        // $user = auth()->user();
+        // $list = Post::orderBy('created_at','desc')->get();
+        // $timelines = Post::orderBy('created_at','desc')->get();
+        $list = Post::get();
+        return view('posts.index',['list'=>$list]);
     }
     public function postCreate(Request $request){
         $validated = $request->validate([
@@ -29,4 +33,6 @@ class PostsController extends Controller
             ]);
             return redirect('/top');
     }
+    // public function postUpdate(){
+    // }
 }

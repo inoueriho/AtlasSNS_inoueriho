@@ -35,11 +35,15 @@ Route::get('/top','PostsController@index');
 Route::post('/top/post','PostsController@postCreate');
 // Route::post('/top/post','PostsController@postUpdate');
 
+//投稿の削除処理
+Route::get('/top/{id}/delete', 'PostsController@delete');
+
 //プロフィールの編集画面表示
 Route::get('/profile','UsersController@profile');
 //プロフィール更新
 Route::post('/profile/update-form', 'UsersController@update');
 
+//検索画面の表示
 Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');

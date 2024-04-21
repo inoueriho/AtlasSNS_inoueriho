@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Auth;
@@ -42,5 +43,8 @@ class UsersController extends Controller
                     'bio' => $bio,
                 ]);
                 return redirect('/top');
+        }
+        public function index(Request $request){
+            return view('users.search');
         }
     }

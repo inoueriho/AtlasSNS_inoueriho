@@ -13,9 +13,7 @@ class PostsController extends Controller
 {
     //
     public function index(Post $post){
-        // $user = auth()->user();
-        // $list = Post::orderBy('created_at','desc')->get();
-        // $timelines = Post::orderBy('created_at','desc')->get();
+        $list = Post::orderBy('created_at','desc')->get();
         $list = Post::get();
         return view('posts.index',['list'=>$list]);
     }
@@ -33,6 +31,9 @@ class PostsController extends Controller
             ]);
             return redirect('/top');
     }
-    // public function postUpdate(){
-    // }
+    public function delete($id){
+        // dd($id);
+        Post::where('id',$id)->delete();
+        return redirect('/top');
+    }
 }

@@ -31,9 +31,10 @@ $('.menu-btn').click(function () {
 $(function () {
   $('.js-modal-open').on('click', function () {
     $('.js-modal').fadeIn();
-    var post = $(this).children('.edit-img').attr(post);
+    var post = $(this).children('.edit-img').attr('post');
     console.log(post);
-    var post_id = $(this).attr(post_id);
+    var post_id = $(this).children('.edit-img').attr('post_id');
+    console.log(post_id);
 
     $('.edit-post').val(post);
     $('.modal_id').val(post_id);

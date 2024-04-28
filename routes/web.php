@@ -37,8 +37,7 @@ Route::post('/top/post','PostsController@postCreate');
 
 //投稿編集処理・編集ボタンが押されてモーダルが開く
 Route::get('/top/{id}/edit','PostsController@edit');
-//投稿編集処理・編集内容を保存しモーダルが閉じてトップページを再読み込みする
-// Route::get('/top/{id}/update,PostsController@update');
+Route::post('/post/update,PostsController@update');
 
 //投稿の削除処理
 Route::get('/top/{id}/delete', 'PostsController@delete');

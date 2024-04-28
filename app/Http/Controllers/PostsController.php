@@ -40,13 +40,14 @@ class PostsController extends Controller
         Post::where('id',$id)->edit();
         return redirect('/top');
     }
-    // public function update($id){
-    //             $id =$request->input('id');
-    //             $post = $request->input('post');
+    public function update(Request $request){
+                $id =$request->input('id');
+                $post = $request->input('post');
+                dd($id , $post);
 
-    //             User::where('id' , $id)->update([
-    //                 'post' => $post,
-    //             ]);
-    //             return redirect('/top');
-    // }
+                User::where('id' , $id)->update([
+                    'post' => $post,
+                ]);
+                return redirect('/top');
+    }
 }

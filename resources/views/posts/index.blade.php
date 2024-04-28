@@ -22,7 +22,7 @@
   <td><a class="trash-img" href="/top/{{$list->id}}/delete" onclick="return confirm('こちらの本を削除してもよろしいでしょうか？')"></a></td>
 <td>
   <div class="js-modal-open" >
-    <div class="edit-img" href="/top/{{$list->id}}/edit" post="{{$list->post}}" post_id="{{$list->id}}"></div>
+    <div class="edit-img" post="{{$list->post}}" post_id="{{$list->id}}"></div>
   </div>
 </td>
 <!-- モーダルの中身 -->
@@ -34,11 +34,11 @@
 <div class="modal js-modal">
   <div class="modal_bg js-modal-close"></div>
   <div class="modal_post">
-    <form action="/post/edit" method="post">
+    <form action="/post/update" method="post">
       @csrf
       <div class="form-group">
         <input type="text" name="upPost" class="edit-post" value=""></input>
-        <input type="hidden" name="id" class="modal_id"></input>
+        <input type="hidden" name="id" class="modal_id" value=""></input>
         <input type="submit" class="submit"><img class="up-post-img" src="images/edit.png"></input>
       </div>
       {{csrf_field()}}

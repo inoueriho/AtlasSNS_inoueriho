@@ -1,7 +1,10 @@
-$('.menu-btn').click(function () {
-  $(this).toggleClass('is-open');
-  $(this).siblings('.menu').toggleClass('is-open');
-});
+$(function () {
+  $('.menu-btn').click(function () {
+    $(this).toggleClass('active');
+    $(this).next('.menu').slideToggle();
+  });
+})
+
 // $(function () {
 //   // 編集ボタン(class="js-modal-open")が押されたら発火
 //   $('.js-modal-open').on('click', function () {
@@ -32,6 +35,11 @@ $(function () {
   $('.js-modal-open').on('click', function () {
     $('.js-modal').fadeIn();
     var post = $(this).children('.edit-img').attr('post');
+    // index.blade.phpに書いてる$listとかは使えないから新たに記述。
+    // まず、thisにはクリックした値が入る。
+    // ここではつまりjs-modal-open。
+    // js-modal-openの子要素のedit-imgにあるpostという属性をpostにします。
+    // attrというのは属性という意味。
     console.log(post);
     var post_id = $(this).children('.edit-img').attr('post_id');
     console.log(post_id);

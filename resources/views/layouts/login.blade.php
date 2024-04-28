@@ -27,8 +27,7 @@
         <h1><a href="/top"><img src="images/atlas.png"></a></h1>
         <div class="head-name">
             <p>{{ Auth::user()->username }}さん</p>
-            <!-- <div class="menu-trigger"></div> -->
-            <button type="button" class="menu-btn">
+            <button type="button" class="menu-btn active">
             <span class="inn"></span>
             </button>
         <nav class="menu">

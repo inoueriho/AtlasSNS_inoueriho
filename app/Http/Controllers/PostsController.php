@@ -42,10 +42,9 @@ class PostsController extends Controller
     }
     public function update(Request $request){
                 $id =$request->input('id');
-                $post = $request->input('post');
-                dd($id , $post);
+                $post = $request->input('upPost');
 
-                User::where('id' , $id)->update([
+                Post::where('id' , $id)->update([
                     'post' => $post,
                 ]);
                 return redirect('/top');

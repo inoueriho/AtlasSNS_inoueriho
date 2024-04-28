@@ -62,70 +62,30 @@ p {
 }
 
 /* アコーディオンメニュー*/
-.menu-btn {
-    right: 1px;
-    outline: initial;
-
-
-    &:focus-visible {
-        box-shadow: 0 0 0 2px blue;
-    }
-}
-
-.inn {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: block;
-
-    &:before {
-        position: absolute;
-        content: "";
-        top: 40%;
-        left: 50%;
-        width: 15px;
-        height: 15px;
-        transform: translate(-50%, -40%) rotate(135deg);
-        border-top: 1px solid #000;
-        border-right: 1px solid #000;
-        transition: 0.3s ease;
-    }
-}
-
-.menu-btn.is-open {
-    .inn {
-        &:before {
-            top: 60%;
-            transform: translate(-50%, -60%) rotate(-45deg);
-        }
-    }
-}
-
 .menu {
-    position: absolute;
-    top: 60px;
-    background-color: #fff;
-    opacity: 0;
-    transition: .3s ease-in-out;
-    pointer-events: none;
-    transform: translateY(-30px);
-
-    ul {
-        border-bottom: 1px solid #000;
-
-        li {
-            height: 60px;
-            border-top: 1px solid #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    }
+    display: none;
 }
 
-.menu.is-open {
-    opacity: 1;
-    transform: translateY(0);
+.menu-btn {
+    color: #727272;
+    font-size: 20px;
+    position: relative;
+}
+
+.menu-btn:hover {
+    cursor: pointer;
+}
+
+/* 閉じてる時 */
+.menu-btn::before {
+    content: ">";
+    position: absolute;
+    right: 20px;
+}
+
+/* 開いてる時 */
+.menu-btn.active::before {
+    content: "<";
 }
 
 /* 投稿 */
@@ -197,6 +157,10 @@ span {
     border-radius: 5px;
 }
 
+.post-content p {
+    color: #000;
+}
+
 .edit-img {
     float: right;
     display: block;
@@ -233,7 +197,6 @@ span {
 }
 
 .submit {
-    display: none;
     border: none;
 }
 

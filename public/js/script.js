@@ -26,3 +26,22 @@ $('.menu-btn').click(function () {
 //     return false;
 //   });
 // });
+
+//モーダルを開く処理
+$(function () {
+  $('.js-modal-open').on('click', function () {
+    $('.js-modal').fadeIn();
+    var post = $(this).children('.edit-img').attr(post);
+    console.log(post);
+    var post_id = $(this).attr(post_id);
+
+    $('.edit-post').val(post);
+    $('.modal_id').val(post_id);
+    return false;
+  });
+
+  $('.js-modal-close').on('click', function () {
+    $('.js-modal').fadeOut();
+    return false;
+  });
+});

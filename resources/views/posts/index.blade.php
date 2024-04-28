@@ -15,14 +15,34 @@
 @foreach($list as $list)
 <div class="post-content">
 <tr>
-  <img class="profile-icon" src="{{ asset('images/icon1.png')}}" alt="プロフィールアイコン">
-  <td>{{$list->user->username}}</td>
-  <td>{{$list->post}}</td>
+  <td><img class="profile-icon" src="{{ asset('images/icon1.png')}}" alt="プロフィールアイコン"></td>
+  <td><p>{{$list->user->username}}</p></td>
+  <td><p class="post-text">{{$list->post}}</p></td>
   <td><span>{{$list->updated_at}}</span></td>
   <td><a class="trash-img" href="/top/{{$list->id}}/delete" onclick="return confirm('こちらの本を削除してもよろしいでしょうか？')"></a></td>
-  <td><img class="edit-img" src="images/edit.png" alt="編集ボタン"></td>
+<td>
+  <div class="js-modal-open" >
+    <div class="edit-img" href="/top/{{$list->id}}/edit" post="{{$list->post}}" post_id="{{$list->id}}"></div>
+  </div>
+</td>
+<!-- モーダルの中身 -->
+
 </tr>
 </div>
 
 @endforeach
+<div class="modal js-modal">
+  <div class="modal_bg js-modal-close"></div>
+  <div class="modal_post">
+    <form action="/post/edit" method="post">
+      @csrf
+      <div class="form-group">
+        <input type="text" name="upPost" class="edit-post" value=""></input>
+        <input type="hidden" name="id" class="modal_id"></input>
+        <input type="submit" class="submit"><img class="up-post-img" src="images/edit.png"></input>
+      </div>
+      {{csrf_field()}}
+    </form>
+  </div>
+</div>
 @endsection

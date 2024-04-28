@@ -8,6 +8,8 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -63,7 +65,5 @@
     </div>
     <footer>
     </footer>
-    <script src="../../../jquery-3.7.1.min.js"></script>
-    <script src="../../../jquery-3.7.1.min.js"></script>
 </body>
 </html>

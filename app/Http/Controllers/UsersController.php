@@ -8,7 +8,6 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 
-
 class UsersController extends Controller
 {
 
@@ -44,7 +43,25 @@ class UsersController extends Controller
                 ]);
                 return redirect('/top');
         }
-        public function index(Request $request){
-            return view('users.search');
+        public function search(Request $request){
+            $users = User::all();
+            // dd($users);
+
+            return view('users.search' ,['users'=>$users]);
         }
+        public function searchResult(Request $request){
+            $keyword = $request->input('keyword');
+// dd($keyword);
+
+            if(!empty($keyword)){
+                $users = User::where('username','like','%'.$keyword.'%')->get();
+            }else{
+                $users = User::all();
+            }
+            return view('users.search' ,['users'=>$users],['keyword'=>$keyword]);
+        }
+        public function get_user($user_id){
+            $user = User::with('following')->with('followed')->findOrFail($user_id);
+            return response()->json($user);
     }
+}

@@ -24,9 +24,9 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+        <h1><a href="/top"><img src="{{asset('images/atlas.png')}}"></a></h1>
         <div class="head-name">
-            <p>{{ Auth::user()->username }}さん</p>
+            <p>{{ Auth::user()->username }} さん</p>
             <button type="button" class="menu-btn active">
             <span class="inn"></span>
             </button>
@@ -59,7 +59,7 @@
                 </div>
                 <p class="btn"><a href="">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

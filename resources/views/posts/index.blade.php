@@ -4,7 +4,7 @@
 {!! Form::open(['url' => '/top/post']) !!}
 @csrf
 {{Form::hidden('id',Auth::user()->id)}}
-<div class="container">
+<div class="post-container">
   <div class="post">
     <img class="profile-icon" src="{{ asset('images/icon1.png')}}" alt="プロフィールアイコン">
     <input class="post-form" type="text" name="post" placeholder="投稿内容を入力してください。">
@@ -16,15 +16,20 @@
 <div class="post-content">
 <tr>
   <td><img class="profile-icon" src="{{ asset('images/icon1.png')}}" alt="プロフィールアイコン"></td>
-  <td><p>{{$list->user->username}}</p></td>
+  <td><p class="post-name">{{$list->user->username}}</p></td>
   <td><p class="post-text">{{$list->post}}</p></td>
   <td><span>{{$list->updated_at}}</span></td>
-  <td><a class="trash-img" href="/top/{{$list->id}}/delete" onclick="return confirm('こちらの本を削除してもよろしいでしょうか？')"></a></td>
-<td>
-  <div class="js-modal-open" >
-    <div class="edit-img" post="{{$list->post}}" post_id="{{$list->id}}"></div>
-  </div>
-</td>
+@if(Auth::user()->id == $list->user_id)
+{{ csrf_field() }}
+  <td>
+    <div class="js-modal-open" >
+      <div class="edit-img" post="{{$list->post}}" post_id="{{$list->id}}"></div>
+    </div>
+  </td>
+    <td><a class="trash-img" href="/top/{{$list->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"></a></td>
+    @endif
+
+
 <!-- モーダルの中身 -->
 
 </tr>

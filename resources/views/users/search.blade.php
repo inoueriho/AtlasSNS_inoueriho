@@ -1,14 +1,42 @@
 @extends('layouts.login')
 
 @section('content')
-{!! Form::open(['url' => '/search']) !!}
-@csrf
-{{Form::hidden('id',Auth::user()->id)}}
-<div class="search-container">
+<form action="/search/result" method="get" class="search-form">
+  @csrf
   <div class="search">
-    <input class="search-form" type="text" name="search" placeholder="ユーザー名">
-    <button type="submit" class="btn"><img class="search-img" src="images/search.png" alt="検索"></button>
+    <input class="search-window" type="search" name="keyword" placeholder="ユーザー名" value="@if(isset($keyword)){{$keyword}}@endif">
+    <button type="submit" class="btn"><img class="search-img" src="{{asset('images/search.png')}}" alt="検索"></button>
   </div>
+</form>
+
+<!-- 検索ワードの表示 -->
+<div class="keyword">
+  @if(!empty($keyword))
+  <p>検索ワード:{{$keyword}}</p>
+  @endif
+</div>
+
+  <div class="container-list">
+    <table class="table table-hover">
+      @foreach ($users as $user)
+      @if ($user->id !== Auth::user()->id)<!-- 自分以外のユーザーを表示 -->
+
+      <ul class="search-content">
+        <li><img class="icon-img" src="{{asset('images/icon1.png') }}" alt="ユーザーアイコン"></li>
+        <li>{{$user->username }}</li>
+
+        <!-- ログインユーザーがフォローしていたらフォロー解除ボタンを表示 -->
+    @if (auth()->user()->isFollowing($user->id))
+    <a href="/search/{{$user->id}}/unfollow" class="btn unfollow_btn">フォロー解除</a>
+    @else
+    <a href="/search/{{$user->id}}/follow" class="btn follow_btn">フォローする</a>
+    @endif
+      </ul>
+      @endif
+      @endforeach
+    </table>
+  </div>
+
 </div>
 {!! Form::close() !!}
 @endsection

@@ -33,10 +33,12 @@ class PostsController extends Controller
     }
     public function delete($id){
         // dd($id);
+        $user_id = Auth::id();
         Post::where('id',$id)->delete();
         return redirect('/top');
     }
     public function edit($id){
+        $user_id = Auth::id();
         Post::where('id',$id)->edit();
         return redirect('/top');
     }

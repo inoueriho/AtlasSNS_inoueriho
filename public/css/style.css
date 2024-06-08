@@ -69,7 +69,6 @@ p {
 .menu-btn {
     color: #727272;
     font-size: 20px;
-    position: relative;
 }
 
 .menu-btn:hover {
@@ -90,17 +89,20 @@ p {
 
 /* 投稿 */
 .post {
-    padding: 30px;
+    width: 900px;
+    padding: 30px 60px 60px 90px;
     position: relative;
 }
 
 .post-form {
+    font-size: 24px;
     position: absolute;
     color: #727272;
     width: 50%;
     border: none;
     padding-left: 20px;
     padding-top: 20px;
+    opacity: 20%;
 }
 
 button {
@@ -111,16 +113,33 @@ button {
     float: right;
 }
 
+.post-container {
+    border-bottom: solid 5px #aaa;
+}
+
 .post-img {
     width: 50px;
     height: 50px;
     border-radius: 5px;
+    vertical-align: bottom;
 }
 
 .post-content {
     display: block;
-    padding: 30px 0 30px 30px;
-    /* ↑padding見やすくするために仮で入れただけ */
+    padding: 30px 0 30px 120px;
+    border-bottom: solid 1px #000;
+}
+
+.post-name {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.post-text {
+    display: inline-block;
+
 }
 
 span {
@@ -213,18 +232,53 @@ span {
     cursor: pointer;
 }
 
-.search-container {
-    padding: 30px;
+/* 検索 */
+.search-form {
+    display: inline-block;
 }
 
-.search-form {
-    position: absolute;
+.search-window {
+    display: inline-block;
+}
+
+.search {
     color: #727272;
     width: 50%;
+    margin: 20px;
+}
+
+.search .btn {
+    display: inline-block;
 }
 
 .search-img {
     width: 50px;
     height: 50px;
     border-radius: 5px;
+}
+
+.search-content {
+    margin: 10px;
+    display: block;
+}
+
+.search-content li {
+    display: inline-block;
+}
+
+.icon-img {
+    width: 50px;
+    height: 50px;
+}
+
+.keyword {
+    display: inline-block;
+}
+
+.keyword p {
+    color: #000;
+}
+
+.nofollow-btn:hover .follow-btn:hover {
+    cursor: pointer;
 }

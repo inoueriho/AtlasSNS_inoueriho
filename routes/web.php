@@ -48,8 +48,16 @@ Route::get('/profile','UsersController@profile');
 Route::post('/profile/update-form', 'UsersController@update');
 
 //検索画面の表示
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');
+//検索結果表示
+Route::get('/search/result','UsersController@searchResult');
 
+//フォローする
+Route::get('/search/{userId}/follow','FollowsController@follow');
+//フォロー解除する
+Route::get('/search/{userId}/unfollow','FollowsController@unfollow');
+
+//フォローリスト
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 

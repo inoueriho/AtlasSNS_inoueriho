@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\User;
+use App\Post;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 
@@ -63,5 +64,8 @@ class UsersController extends Controller
         public function get_user($user_id){
             $user = User::with('following')->with('followed')->findOrFail($user_id);
             return response()->json($user);
+    }
+    public function userProfile(Request $request){
+        return view('users.userprofile');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 use App\Follow; //Followモデルをインポート
 use Illuminate\Support\Facades\Auth; // Authファサードを読み込む
 
@@ -61,12 +62,31 @@ class FollowsController extends Controller
                 ->delete();
         }
         return redirect('/search');
+        // return redirect('/web.phpに戻って処理');
             }
     //
-    public function followList(){
-        return view('follows.followList');
+    // public function followList(){
+    //     $following_id = Auth::user()->follow()->pluck('followed_id');
+    //     $followings = User::whereIn('user_id' , $following_id)->get();
+    //     return view('follows.followList' , compact('followings'));
+    // }
+    public function followList_view(){
+        $list = Post::orderBy('created_at','desc')->get();
+        $list = Post::get();
+
+        $following_id = Auth::user()->follow()->pluck('followed_id');
+        $followings = User::whereIn('id' , $following_id)->get();
+        $posts = Post::with('user')->whereIn('id', $following_id)->get();
+        return view('follows.followList' , compact('posts','followings','list'));
     }
-    public function followerList(){
-        return view('follows.followerList');
+    public function followerList_view(){
+        $list = Post::orderBy('created_at','desc')->get();
+        $list = Post::get();
+
+        $followed_id = Auth::user()->follow()->pluck('following_id');
+        $followers = User::whereIn('id' , $followed_id)->get();
+        $posts = Post::with('user')->whereIn('id', $followed_id)->get();
+        return view('follows.followerList' , compact('posts','followers','list'));
+        // return view('フォルダ名.blade名');
     }
 }

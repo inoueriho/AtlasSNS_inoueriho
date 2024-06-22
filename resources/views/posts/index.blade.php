@@ -7,6 +7,7 @@
 <div class="post-container">
   <div class="post">
     <img class="profile-icon" src="{{ asset('images/icon1.png')}}" alt="プロフィールアイコン">
+    <!-- ↑アイコンimagesの書き方違う -->
     <input class="post-form" type="text" name="post" placeholder="投稿内容を入力してください。">
     <button type="submit" class="btn"><img class="post-img" src="images/post.png" alt="送信"></button>
   </div>
@@ -16,6 +17,7 @@
 <div class="post-content">
 <tr>
   <td><img class="profile-icon" src="{{ asset('images/icon1.png')}}" alt="プロフィールアイコン"></td>
+  <!-- ↑アイコンimagesの書き方違う -->
   <td><p class="post-name">{{$list->user->username}}</p></td>
   <td><p class="post-text">{{$list->post}}</p></td>
   <td><span>{{$list->updated_at}}</span></td>

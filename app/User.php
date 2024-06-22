@@ -48,12 +48,12 @@ class User extends Authenticatable
    public function followed(){
     return $this->follows->detach($user_id);
    }
-   //フォローしているかの判定
+   //フォローしているかの判定(follow()は上のリレーションを指してる。)
    public function isFollowing($user_id){
     return (bool) $this->follow()->where('followed_id', $user_id)->first();
    }
-   //フォローされているかの判定
+   //フォローされているかの判定(followUsers()は上のリレーションを指してる。)
    public function isFollowed($user_id){
-    return(bool) $this->followers()->where('following_id',$user_id)->first();
+    return(bool) $this->followUsers()->where('following_id',$user_id)->first();
    }
 }

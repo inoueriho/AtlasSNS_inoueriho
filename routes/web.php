@@ -58,8 +58,13 @@ Route::get('/search/{userId}/follow','FollowsController@follow');
 Route::get('/search/{userId}/unfollow','FollowsController@unfollow');
 
 //フォローリスト
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','FollowsController@followList_view');
+
+//フォロワーリスト
+Route::get('/follower-list','FollowsController@followerList_view');
+
+//相手ユーザーのプロフィールページ表示
+Route::get('/user-profile','UsersController@userProfile');
 
 //ログアウト機能
 Route::get('/logout','Auth\LoginController@logout');

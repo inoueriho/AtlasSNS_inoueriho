@@ -1,18 +1,31 @@
 @extends('layouts.login')
 @section('content')
-{!! Form::open(['url' => '/user-profile']) !!}
-@csrf
-{{Form::hidden('id',Auth::user()->id)}}
 <div class="user-profile">
-  <img class="profile-icon" src="{{ asset('images/icon2.png')}}" alt="プロフィールアイコン">
-<tr>
-  <td><p>ユーザー名</p></td>
-  <td><p class="">{{$list->user->username}}</p></td>
-  <td><p>自己紹介</p></td>
-  <td><p>{{$list->user->bio}}</p></td>
-</tr>
+  <img class="profile-icon" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
+  <div class="userprofile_user">
+    <tr>
+      <th><p>ユーザー名</p></th>
+      <td><p>{{$users->username}}</p></td>
+    </tr>
+    <tr>
+      <th><p>自己紹介</p></th>
+      <td><p>{{$users->bio}}</p></td>
+    </tr>
+    <!-- フォローぼたん -->
+    @if (auth()->user()->isFollowing($users->id))
+    <a href="/search/{{$users->id}}/unfollow" class="btn unfollow_btn">フォロー解除</a>
+    @else
+    <a href="/search/{{$users->id}}/follow" class="btn follow_btn">フォローする</a>
+    @endif
+  </div>
+  @foreach($posts as $posts)
+<div class="userprofile_post">
+  <img class="profile-icon" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
+  <td><p>{{$users->username}}</p></td>
+  <td><p>{{$posts->post}}</p></td>
+  <td><span>{{$posts->updated_at}}</span></td>
 </div>
+  @endforeach
 
-  <td><p class="post-text">{{$list->post}}</p></td>
-  <td><span>{{$list->updated_at}}</span></td>
-</tr>
+</div>
+@endsection

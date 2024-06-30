@@ -4,12 +4,12 @@
 {!! Form::open(['url' => '/follow-list']) !!}
 @csrf
 {{Form::hidden('id',Auth::user()->id)}}
-<div>
+<div class="follower-container">
   <h1>フォロワーリスト</h1>
   <div class="follower_icon">
     @foreach ($followers as $followers)
-    <a href=""><img src="{{ asset('images/icon1.png') }}" alt=""></a>
-     <!-- ↑アイコンimages書き方違う　あとで訂正 -->
+    <a href="user-profile/{{$followers->id}}"><img src="{{ asset('storage/'.$followers->images) }}" alt=""></a>
+     <!-- ↑情報がログインユーザーになってる。 -->
     @endforeach
   </div>
 </div>
@@ -18,7 +18,7 @@
 @if (auth()->user()->isFollowed($list->user_id))
 <div class="post-content">
 <tr>
-  <td><img class="profile-icon" src="{{ asset('images/icon1.png')}}" alt="プロフィールアイコン"></td>
+  <td><a href="user-profile/{{$list->user_id}}"><img class="profile-icon" src="{{ asset('storage/'.$list->user->images) }}" alt="プロフィールアイコン"></a></td>
   <td><p class="post-name">{{$list->user->username}}</p></td>
   <td><p class="post-text">{{$list->post}}</p></td>
   <td><span>{{$list->updated_at}}</span></td>

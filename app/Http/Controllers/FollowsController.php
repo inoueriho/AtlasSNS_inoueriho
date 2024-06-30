@@ -39,7 +39,7 @@ class FollowsController extends Controller
                 'following_id' => $follower->id,
                 'followed_id' => $followedUserId,
             ]);
-            return redirect('/search'); // フォロー後に元のページにリダイレクト
+            return redirect()->back(); // フォロー後に元のページにリダイレクト
         }
         }
         public function unfollow($userId){
@@ -61,7 +61,7 @@ class FollowsController extends Controller
             ])
                 ->delete();
         }
-        return redirect('/search');
+        return redirect()->back();
         // return redirect('/web.phpに戻って処理');
             }
     //
@@ -73,6 +73,7 @@ class FollowsController extends Controller
     public function followList_view(){
         $list = Post::orderBy('created_at','desc')->get();
         $list = Post::get();
+        // dd($list);
 
         $following_id = Auth::user()->follow()->pluck('followed_id');
         $followings = User::whereIn('id' , $following_id)->get();
@@ -83,7 +84,8 @@ class FollowsController extends Controller
         $list = Post::orderBy('created_at','desc')->get();
         $list = Post::get();
 
-        $followed_id = Auth::user()->follow()->pluck('following_id');
+        $followed_id = Auth::user()->followUsers()->pluck('following_id');
+        // dd($followed_id);
         $followers = User::whereIn('id' , $followed_id)->get();
         $posts = Post::with('user')->whereIn('id', $followed_id)->get();
         return view('follows.followerList' , compact('posts','followers','list'));

@@ -32,6 +32,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Post');
     }
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
     //ログインユーザーのフォロワー //リレーションしただけ。
    public function followUsers(){
     return $this->belongsToMany('App\User','follows','followed_id','following_id'); //テーブル名・カラム名記載

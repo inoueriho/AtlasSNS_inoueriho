@@ -7,14 +7,15 @@
     <input class="search-window" type="search" name="keyword" placeholder="ユーザー名" value="@if(isset($keyword)){{$keyword}}@endif">
     <button type="submit" class="btn"><img class="search-img" src="{{asset('images/search.png')}}" alt="検索"></button>
   </div>
-</form>
-
-<!-- 検索ワードの表示 -->
+  <!-- 検索ワードの表示 -->
 <div class="keyword">
   @if(!empty($keyword))
   <p>検索ワード:{{$keyword}}</p>
   @endif
 </div>
+</form>
+
+
 
   <div class="container-list">
     <table class="table table-hover">
@@ -22,8 +23,8 @@
       @if ($user->id !== Auth::user()->id)<!-- 自分以外のユーザーを表示 -->
 
       <ul class="search-content">
-        <li><img class="icon-img" src="{{asset('images/icon1.png') }}" alt="ユーザーアイコン"></li>
-        <li>{{$user->username }}</li>
+        <li><img class="icon-img" src="{{ asset('storage/'.$user->images) }}" alt="ユーザーアイコン"></li>
+        <li class="search-name">{{$user->username }}</li>
 
         <!-- ログインユーザーがフォローしていたらフォロー解除ボタンを表示 -->
     @if (auth()->user()->isFollowing($user->id))

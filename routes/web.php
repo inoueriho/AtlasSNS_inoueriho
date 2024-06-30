@@ -64,7 +64,7 @@ Route::get('/follow-list','FollowsController@followList_view');
 Route::get('/follower-list','FollowsController@followerList_view');
 
 //相手ユーザーのプロフィールページ表示
-Route::get('/user-profile','UsersController@userProfile');
+Route::get('/user-profile/{id}','UsersController@userProfile');
 
 //ログアウト機能
 Route::get('/logout','Auth\LoginController@logout');

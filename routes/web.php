@@ -29,6 +29,8 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
+//アクセス制限
+Route::group(['Middleware'=>'auth'],function(){
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 //投稿の登録処理
@@ -68,3 +70,4 @@ Route::get('/user-profile/{id}','UsersController@userProfile');
 
 //ログアウト機能
 Route::get('/logout','Auth\LoginController@logout');
+});

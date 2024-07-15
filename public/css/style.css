@@ -84,9 +84,16 @@ header h1 img {
 .search-btn {
     background-color: #186AC9;
     border-radius: 10px;
-    color: #fff;
-    text-decoration: none;
     padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 50%;
+}
+
+.search-btn a p {
+    color: #fff;
+    text-align: center;
 }
 
 #slide-bar {
@@ -170,13 +177,13 @@ button {
 }
 
 .post-text {
-    display: inline-block;
-
+    display: inline;
 }
 
 span {
     float: right;
     display: block;
+    padding-right: 20px;
 }
 
 .trash-img {
@@ -223,6 +230,10 @@ span {
     z-index: 2;
     position: fixed;
     display: none;
+}
+
+.js-modal-open {
+    display: inline-block;
 }
 
 .form-group {
@@ -294,7 +305,7 @@ span {
 }
 
 .search-content {
-    margin: 10px;
+    padding: 20px;
     display: block;
     text-align: center;
 }
@@ -330,7 +341,6 @@ span {
 /* プロフィール編集ページ */
 .profile-icon {
     padding-left: 50px;
-    padding-top: 20px;
     vertical-align: top;
 }
 
@@ -364,7 +374,7 @@ span {
     background-color: #dc143c;
     border: none;
     border-radius: 5px;
-    width: 100px;
+    width: 150px;
     color: #fff;
     margin-left: 100px;
     padding: 10px 20px;

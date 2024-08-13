@@ -154,10 +154,13 @@ header h1 img {
 }
 
 #confirm .btn {
+    border: none;
+    display: flex;
+    align-items: flex-end;
+    float: right;
     background-color: #186AC9;
     border-radius: 10px;
     color: #fff;
-    text-decoration: none;
     padding: 10px;
     display: block;
 }
@@ -221,12 +224,12 @@ header h1 img {
     opacity: 20%;
 }
 
-.btn {
+.post-btn {
+    float: right;
     border: none;
     padding: 0;
     display: flex;
     align-items: flex-end;
-    float: right;
 }
 
 .post-img {
@@ -317,7 +320,7 @@ header h1 img {
     top: 25%;
     left: 25%;
     width: 50%;
-    height: 50%;
+    height: 40%;
     position: absolute;
     padding: 30px;
     /* margin: auto; */
@@ -328,8 +331,6 @@ header h1 img {
 }
 
 .modal_post {
-    width: 100%;
-    height: 80%;
     border: 1px solid #000;
 }
 
@@ -340,23 +341,24 @@ header h1 img {
 
 .form-group {
     background-color: #fff;
-
+    height: 250px;
 }
 
 .edit-post {
     border: none;
     width: 90%;
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .up-post-img {
-    float: right;
     display: block;
     width: 50px;
     height: 50px;
+    margin: auto;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 40px;
 }
 
 .up-post-img:hover {
@@ -369,14 +371,35 @@ header h1 img {
 } */
 
 /* ユーザー検索 */
+.search {
+    display: inline-block;
+    width: 80%;
+    padding-bottom: 20px;
+}
+
 .search-form {
     border-bottom: solid 5px #727272;
 }
 
 .search-window {
-    display: inline-block;
+    /* display: inline-block; */
     width: 400px;
     height: 50px;
+    float: left;
+}
+
+.search1 {
+    margin: 40px;
+}
+
+.search .btn {
+    float: left;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: flex-end;
+    float: left;
+    margin-left: 20px;
 }
 
 .search-img {
@@ -385,23 +408,12 @@ header h1 img {
     border-radius: 5px;
 }
 
-.search {
-    display: inline-block;
-    width: 80%;
-}
-
-.search1 {
-    width: 80%;
-    margin: 40px;
-}
-
 .keyword {
     float: right;
+    font-size: 24px;
 }
 
-.search .btn {
-    display: inline-block;
-}
+
 
 .unfollow_btn {
     background-color: #dc143c;

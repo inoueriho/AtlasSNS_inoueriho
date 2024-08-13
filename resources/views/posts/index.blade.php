@@ -7,7 +7,7 @@
   <div class="post">
     <img class="profile-icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
     <input class="post-form" type="text" name="post" placeholder="投稿内容を入力してください。">
-    <button type="submit" class="btn"><img class="post-img" src="images/post.png" alt="送信"></button>
+    <button type="submit" class="post-btn"><img class="post-img" src="images/post.png" alt="送信"></button>
     <input type="hidden" name="id" value="Auth::user()->id">
   </div>
 </div>
@@ -49,7 +49,6 @@
         </div>
             <input type="image" class="up-post-img" src="images/edit.png" alt="更新する">
       </form>
-    </div>
   </div>
 
 </div>

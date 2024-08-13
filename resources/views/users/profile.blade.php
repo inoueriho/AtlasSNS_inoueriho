@@ -42,7 +42,7 @@
 {{ Form::submit('更新',['class' => 'update-button']) }}
 <!-- <a class="btn btn-primary" href="/top">更新</a> -->
 </div>
-@if($errors->any())
+<!-- @if($errors->any())
     <div class="alert alert-danger">
       <ul>
         @foreach($errors->all() as $error)
@@ -50,7 +50,7 @@
         @endforeach
       </ul>
     </div>
-@endif
+@endif -->
 
 
 

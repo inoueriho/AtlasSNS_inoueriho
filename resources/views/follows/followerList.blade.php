@@ -8,24 +8,32 @@
   <h1>フォロワーリスト</h1>
   <div class="follower_icon">
     @foreach ($followers as $followers)
-    <a href="user-profile/{{$followers->id}}"><img src="{{ asset('storage/'.$followers->images) }}" alt=""></a>
+    <a href="user-profile/{{$followers->id}}"><img class="follower_icon-img" src="{{ asset('storage/'.$followers->images) }}" alt=""></a>
      <!-- ↑情報がログインユーザーになってる。 -->
     @endforeach
   </div>
-</div>
 
-@foreach($list as $list)
+
+
+<div class="follower-content">
+  @foreach($list as $list)
 @if (auth()->user()->isFollowed($list->user_id))
-<div class="post-content">
-<tr>
-  <td><a href="user-profile/{{$list->user_id}}"><img class="profile-icon" src="{{ asset('storage/'.$list->user->images) }}" alt="プロフィールアイコン"></a></td>
-  <td><p class="post-name">{{$list->user->username}}</p></td>
-  <td><p class="post-text">{{$list->post}}</p></td>
-  <td><span>{{$list->updated_at}}</span></td>
+<li class="follower-list">
+  <a href="user-profile/{{$list->user_id}}"><img class="followerlist-icon" src="{{ asset('storage/'.$list->user->images) }}" alt="プロフィールアイコン"></a>
+  <div class="follower-list_post">
+    <div class="follower-list_post_content">
+      <p class="post-name">{{$list->user->username}}</p>
+      <span>{{$list->updated_at}}</span>
+    </div>
+    <div class="follower-list_post_content">
+      <p class="post-text">{{$list->post}}</p>
+    </div>
+  </div>
 @endif
-</tr>
+</li>
+@endforeach
 </div>
 
-@endforeach
 
+</div>
 @endsection

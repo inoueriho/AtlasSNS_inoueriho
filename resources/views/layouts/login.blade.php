@@ -8,8 +8,7 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/script.js"></script>
+
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -31,10 +30,10 @@
             <span class="inn"></span>
             </button>
         <nav class="menu">
-            <ul>
-              <li><a href="/top">HOME</a></li>
-              <li><a href="/profile">プロフィール編集</a></li>
-              <li><a href="/logout">ログアウト</a></li>
+            <ul class="nav">
+              <li class="nav-content"><a href="/top">HOME</a></li>
+              <li class="nav-content"><a href="/profile">プロフィール編集</a></li>
+              <li class="nav-content"><a href="/logout">ログアウト</a></li>
             </ul>
         </nav>
             <img src="{{ asset('storage/'.Auth::user()->images) }}">
@@ -49,20 +48,30 @@
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
-                <span><p>〇〇名</p></span>
+                  <p>フォロー数</p>
+                  <!-- isFollowing使ってしまったらUser.phpで($user_id)を定義してるからこっちでも指定しなければいけなくなる。だからそれじゃなくてフォローの方を数える -->
+                  <p>{{ auth()->user()->follow()->count() }}名</p>
                 </div>
-                <p><a class="btn" href="/follow-list">フォローリスト</a></p>
+
+                <div class="list-btn">
+                  <p><a class="btn" href="/follow-list">フォローリスト</a></p>
+                </div>
+
                 <div>
-                <p>フォロワー数</p>
-                <span><p>〇〇名</p></span>
+                  <p>フォロワー数</p>
+                  <p>{{ auth()->user()->followUsers()->count() }}名</p>
                 </div>
-                <p><a class="btn" href="/follower-list">フォロワーリスト</a></p>
+
+                <div class="list-btn">
+                  <p><a class="btn" href="/follower-list">フォロワーリスト</a></p>
+                </div>
             </div>
             <div class="search-btn"><a href="/search"><p>ユーザー検索</p></a></div>
         </div>
     </div>
     <footer>
     </footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="{{asset('js/script.js')}}"></script>
 </body>
 </html>

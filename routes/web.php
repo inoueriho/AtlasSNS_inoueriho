@@ -30,7 +30,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //アクセス制限
-Route::group(['Middleware'=>'auth'],function(){
+Route::group(['middleware'=>'auth'],function(){
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 //投稿の登録処理

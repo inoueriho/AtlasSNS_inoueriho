@@ -3,12 +3,18 @@
 @section('content')
 
 <div id="clear">
-  <p>{{ session('username' ) }}さん</p>
-  <p>ようこそ！AtlasSNSへ！</p>
-  <p>ユーザー登録が完了しました。</p>
-  <p>早速ログインをしてみましょう。</p>
+  <div class="added-container">
+    <div class="added-content1">
+      <p>{{ session('username' ) }}さん</p>
+      <p>ようこそ！AtlasSNSへ！</p>
+    </div>
 
-  <p class="btn"><a href="/login">ログイン画面へ</a></p>
+    <div class="added-content2">
+      <p>ユーザー登録が完了しました。</p>
+      <p>早速ログインをしてみましょう。</p>
+    </div>
+    <p class="login-back_btn"><a href="/login">ログイン画面へ</a></p>
+  </div>
 </div>
 
 @endsection

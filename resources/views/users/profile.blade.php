@@ -4,8 +4,8 @@
 {!! Form::open(['url' => '/profile/update-form','enctype' =>'multipart/form-data']) !!}
 @csrf
 {{Form::hidden('id',Auth::user()->id)}}
-<img class="profile-icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
 <div class="profile-container">
+  <img class="profile-update_icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
   <div class="update">
 <!-- ユーザー -->
   <div class="ct-clock">

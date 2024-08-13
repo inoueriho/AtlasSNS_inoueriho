@@ -4,25 +4,39 @@
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/register']) !!}
 
-<h2>新規ユーザー登録</h2>
+<div class="register-container">
+  <div class="register-content">
+    <h2>新規ユーザー登録</h2>
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+    <div class="register-username">
+    {{ Form::label('ユーザー名') }}
+    {{ Form::text('username',null,['class' => 'input']) }}
+    </div>
 
-{{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+    <div class="register-mail">
+    {{ Form::label('メールアドレス') }}
+    {{ Form::text('mail',null,['class' => 'input']) }}
+    </div>
 
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+    <div class="register-pass">
+    {{ Form::label('パスワード') }}
+    {{ Form::password('password',null,['class' => 'input']) }}
+    </div>
 
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+    <div class="register-pass2">
+    {{ Form::label('パスワード確認') }}
+    {{ Form::password('password_confirmation',null,['class' => 'input']) }}
+    </div>
 
-{{ Form::submit('登録') }}
+    <div class="register-btn">
+    {{ Form::submit('登録') }}
+    </div>
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+    <p class="login-back"><a href="/login">ログイン画面へ戻る</a></p>
+  </div>
+   {!! Form::close() !!}
+</div>
 
-{!! Form::close() !!}
 
 
 @endsection

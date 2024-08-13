@@ -1,10 +1,191 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
-    height: 100%;
-    background: #186AC9;
+body {
+    /* height: 100%; */
+    background: linear-gradient(#1e90ff, #ffd700);
+}
+
+/* ログインページ */
+.atlas-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+    height: 10%;
+    padding-bottom: 5px;
+    margin-top: 10%;
+}
+
+header p {
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+    color: #fff;
+    padding-bottom: 30px;
+}
+
+h2 {
+    font-size: 18px;
+    padding-top: 20px;
+}
+
+.login-container,
+.register-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    width: 15%;
+    height: auto;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+.login-content,
+.register-content {
+    z-index: 5;
+    color: #fff;
+}
+
+.login-mail,
+.login-pass,
+.login-btn {
+    display: block;
+    padding-top: 20px;
+}
+
+.login-mail input,
+.login-pass input {
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px;
+    margin: 5px;
+}
+
+label {
+    float: left;
+}
+
+.login-btn input {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #fff;
+}
+
+.login-btn {
+    display: inline-block;
+    background-color: #dc143c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.login-register {
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+.login-register a {
+    color: #fff;
+    border-bottom: solid 1px #fff;
+}
+
+/* 新規登録画面 */
+.register-username,
+.register-mail,
+.register-pass,
+.register-pass2,
+.register-btn {
+    display: block;
+    padding-top: 20px;
+}
+
+.register-username input,
+.register-mail input,
+.register-pass input,
+.register-pass2 input {
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px;
+    margin: 5px;
+}
+
+.register-btn {
+    display: inline-block;
+    background-color: #dc143c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.register-btn input {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #fff;
+}
+
+.register-btn input:hover {
+    cursor: pointer;
+}
+
+.login-back {
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+.login-back a {
+    color: #fff;
+    border-bottom: solid 1px #fff;
+}
+
+/* 登録完了画面 */
+.added-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.2);
+    width: 15%;
+    height: auto;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+.added-content1 {
+    color: #fff;
+    padding-top: 20px;
+    font-weight: 600;
+}
+
+.added-content2 {
+    color: #fff;
+    padding-top: 40px;
+}
+
+.added-content1 p,
+.added-content2 p {
+    padding-bottom: 5px;
+}
+
+.login-back_btn {
+    display: inline-block;
+    background-color: #dc143c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.login-back_btn a {
+    color: #fff;
 }

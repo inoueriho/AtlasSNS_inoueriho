@@ -1,31 +1,40 @@
 @extends('layouts.login')
 @section('content')
 <div class="user-profile">
-  <img class="profile-icon" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
+  <img class="userprofile-icon1" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
   <div class="userprofile_user">
-    <tr>
-      <th><p>ユーザー名</p></th>
-      <td><p>{{$users->username}}</p></td>
-    </tr>
-    <tr>
-      <th><p>自己紹介</p></th>
-      <td><p>{{$users->bio}}</p></td>
-    </tr>
+    <div class="userprofile1">
+      <p class="userprofile-hd">ユーザー名</p>
+      <p>{{$users->username}}</p>
+    </div>
+    <div class="userprofile1">
+      <p class="userprofile-hd">自己紹介</p>
+      <p>{{$users->bio}}</p>
+    </div>
     <!-- フォローぼたん -->
+    <div class="user-btn">
     @if (auth()->user()->isFollowing($users->id))
     <a href="/search/{{$users->id}}/unfollow" class="btn unfollow_btn">フォロー解除</a>
     @else
     <a href="/search/{{$users->id}}/follow" class="btn follow_btn">フォローする</a>
     @endif
+    </div>
   </div>
+  <div class="userprofile-content">
   @foreach($posts as $posts)
-<div class="userprofile_post">
-  <img class="profile-icon" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
-  <td><p>{{$users->username}}</p></td>
-  <td><p>{{$posts->post}}</p></td>
-  <td><span>{{$posts->updated_at}}</span></td>
-</div>
+<li class="userprofile_post">
+  <img class="userprofile-icon" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
+  <div class="userprofile_post2">
+  <div class="userprofile_post-content">
+    <p>{{$users->username}}</p>
+    <span>{{$posts->updated_at}}</span>
+  </div>
+  <div class="userprofile_post-content">
+    <p>{{$posts->post}}</p>
+  </div>
+  </div>
+</li>
   @endforeach
-
+</div>
 </div>
 @endsection

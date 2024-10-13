@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
 html {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
-    /* height: 100%; */
-    background: linear-gradient(#1e90ff, #ffd700);
+    background-image: linear-gradient(#1e90ff, #ffd700);
+    padding: 10% 0;
 }
 
 /* ログインページ */
@@ -17,7 +17,6 @@ body {
     width: 10%;
     height: 10%;
     padding-bottom: 5px;
-    margin-top: 10%;
 }
 
 header p {
@@ -31,6 +30,7 @@ header p {
 h2 {
     font-size: 18px;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .login-container,
@@ -53,24 +53,25 @@ h2 {
     color: #fff;
 }
 
-.login-mail,
-.login-pass,
-.login-btn {
+.login-pass {
     display: block;
-    padding-top: 20px;
 }
 
 .login-mail input,
 .login-pass input {
-    width: 80%;
+    width: 100%;
     height: 30px;
     border-radius: 5px;
     border: 1px;
-    margin: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: left;
 }
 
 label {
-    float: left;
+    display: flex;
+    justify-content: left;
+    padding-bottom: 10px;
 }
 
 .login-btn input {
@@ -78,14 +79,17 @@ label {
     border: none;
     padding: 0;
     color: #fff;
+    display: flex;
+    justify-content: right;
 }
 
 .login-btn {
-    display: inline-block;
+    width: fit-content;
     background-color: #dc143c;
     padding: 10px 20px;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-left: auto;
+    /* margin autoで真ん中寄せになることの応用 */
 }
 
 .login-register {
@@ -99,11 +103,15 @@ label {
 }
 
 /* 新規登録画面 */
+.register-container p {
+    color: #dc143c;
+    padding-bottom: 10px;
+}
+
 .register-username,
 .register-mail,
 .register-pass,
-.register-pass2,
-.register-btn {
+.register-pass2 {
     display: block;
     padding-top: 20px;
 }
@@ -112,19 +120,20 @@ label {
 .register-mail input,
 .register-pass input,
 .register-pass2 input {
-    width: 80%;
+    width: 100%;
     height: 30px;
     border-radius: 5px;
     border: 1px;
-    margin: 5px;
+    padding: 0;
 }
 
 .register-btn {
-    display: inline-block;
+    width: fit-content;
     background-color: #dc143c;
     padding: 10px 20px;
     border-radius: 5px;
     margin-top: 20px;
+    margin-left: auto;
 }
 
 .register-btn input {

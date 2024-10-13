@@ -21,11 +21,17 @@
   <div class="ct-clock">
     <label for="password">パスワード</label>
     <input type="password" name="password" id="password">
+      @if ($errors->has('password'))
+      <p>{{$errors->first('password')}}</p>
+      @endif
   </div>
 <!-- パスワードの確認 -->
   <div class="ct-clock">
     <label for="pass-c">パスワード確認</label>
     <input type="password" name="pass-c" id="pass-c">
+      <!-- @if ($errors->has('password'))
+      <li>{{$errors->first('password')}}</li>
+      @endif -->
   </div>
 <!-- 自己紹介文 -->
   <div class="ct-clock">

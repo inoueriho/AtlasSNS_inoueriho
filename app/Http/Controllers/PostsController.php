@@ -13,8 +13,15 @@ class PostsController extends Controller
 {
     //
     public function index(Post $post){
-        $list = Post::orderBy('created_at','desc')->get();
+        $list = Post::orderBy('created_at','asc')->first();
         $list = Post::get();
+
+        $following_id = Auth::user()->follow()->pluck('followed_id');
+        $followings = User::whereIn('id' , $following_id)->get();
+        $list = Post::with('user')->where('user_id', Auth::id())->orWhereIn('user_id', $following_id)->orderBy('created_at','desc')->get();
+
+        // dd($following_id);
+
         return view('posts.index',['list'=>$list]);
     }
     public function postCreate(Request $request){

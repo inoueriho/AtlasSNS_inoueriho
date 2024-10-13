@@ -7,6 +7,9 @@
   <div class="post">
     <img class="profile-icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
     <input class="post-form" type="text" name="post" placeholder="投稿内容を入力してください。">
+      @if ($errors->has('post'))
+      <li>{{$errors->first('post')}}</li>
+      @endif
     <button type="submit" class="post-btn"><img class="post-img" src="images/post.png" alt="送信"></button>
     <input type="hidden" name="id" value="Auth::user()->id">
   </div>
@@ -18,7 +21,7 @@
   <div class="post-content1">
     <div class="post-content2">
       <p>{{$list->user->username}} </p>
-      <p class="post-content3"> {{$list->updated_at}} </p>
+      <p class="post-content3"> {{$list->created_at}} </p>
     </div>
     <div class="post-content2">
       <p>{{$list->post}}</p>
@@ -43,7 +46,7 @@
         <div class="modal_post">
           @csrf
           <div class="form-group">
-            <input type="text" name="upPost" class="edit-post" value=""></input>
+            <textarea name="upPost" class="edit-post" value=""></textarea>
             <input type="hidden" name="id" class="modal_id" value=""></input>
           </div>
         </div>

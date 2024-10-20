@@ -26,7 +26,7 @@ class PostsController extends Controller
     }
     public function postCreate(Request $request){
         $validated = $request->validate([
-                'post' => 'required|min:1|max:150'
+                'post' => 'string|max:150'
         ]);
 
         $user_id=Auth::user()->id;
@@ -56,6 +56,9 @@ class PostsController extends Controller
                 Post::where('id' , $id)->update([
                     'post' => $post,
                 ]);
+                $validated = $request->validate([
+                'post' => 'numeric|between:1,150'
+        ]);
                 return redirect('/top');
     }
 }

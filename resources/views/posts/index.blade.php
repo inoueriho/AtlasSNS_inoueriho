@@ -5,11 +5,13 @@
 @csrf
 <div class="post-container">
   <div class="post">
-    <img class="profile-icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
-    <input class="post-form" type="text" name="post" placeholder="投稿内容を入力してください。">
-      @if ($errors->has('post'))
-      <li>{{$errors->first('post')}}</li>
-      @endif
+    <div class="post-right">
+      <img class="profile-icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
+      <input class="post-form" type="text" name="post" placeholder="投稿内容を入力してください。">
+        @if ($errors->has('post'))
+          <p class="error-message">{{$errors->first('post')}}</p>
+        @endif
+    </div>
     <button type="submit" class="post-btn"><img class="post-img" src="images/post.png" alt="送信"></button>
     <input type="hidden" name="id" value="Auth::user()->id">
   </div>
@@ -46,7 +48,11 @@
         <div class="modal_post">
           @csrf
           <div class="form-group">
-            <textarea name="upPost" class="edit-post" value=""></textarea>
+            <textarea name="upPost" class="edit-post" value="">
+              @if ($errors->has('post'))
+              <p class="error-message">{{$errors->first('post')}}</p>
+              @endif
+            </textarea>
             <input type="hidden" name="id" class="modal_id" value=""></input>
           </div>
         </div>

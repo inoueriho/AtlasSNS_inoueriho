@@ -139,6 +139,7 @@ return [
 // ここに配列で定義する
         'username'  => '名前',
         'password' =>'パスワード',
+        'password_confirmation' => 'パスワード',
         'mail' => 'メールアドレス',
         'post' => '投稿',
 

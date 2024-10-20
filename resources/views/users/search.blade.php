@@ -29,9 +29,9 @@
         <li class="search-name">{{$user->username }}</li>
         <!-- ログインユーザーがフォローしていたらフォロー解除ボタンを表示 -->
         @if (auth()->user()->isFollowing($user->id))
-        <a href="/search/{{$user->id}}/unfollow" class="unfollow_btn">フォロー解除</a>
-        @else
-        <a href="/search/{{$user->id}}/follow" class="follow_btn">フォローする</a>
+          <a href="/search/{{$user->id}}/unfollow" class="unfollow_btn">フォロー解除</a>
+          @else
+          <a href="/search/{{$user->id}}/follow" class="follow_btn">フォローする</a>
         @endif
       </ul>
     @endif

@@ -103,9 +103,10 @@ label {
 }
 
 /* 新規登録画面 */
-.register-container p {
+.error-message {
     color: #dc143c;
     padding-bottom: 10px;
+    text-align: left;
 }
 
 .register-username,

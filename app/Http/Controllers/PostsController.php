@@ -50,15 +50,17 @@ class PostsController extends Controller
         return redirect('/top');
     }
     public function update(Request $request){
+        // dd($request);
+        $validated = $request->validate([
+                'upPost' => 'string|max:150'
+        ]);
                 $id =$request->input('id');
                 $post = $request->input('upPost');
                 // dd($id,$post);
                 Post::where('id' , $id)->update([
                     'post' => $post,
                 ]);
-                $validated = $request->validate([
-                'post' => 'numeric|between:1,150'
-        ]);
+
                 return redirect('/top');
     }
 }

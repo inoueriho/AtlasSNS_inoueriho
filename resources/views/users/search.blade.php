@@ -25,7 +25,13 @@
     @foreach ($users as $user)
     @if ($user->id !== Auth::user()->id)<!-- 自分以外のユーザーを表示 -->
       <ul class="search-content">
-        <li><img class="icon-img" src="{{ asset('storage/'.$user->images) }}" alt="ユーザーアイコン"></li>
+        <li>
+          @if($user->images === 'icon1.png')
+            <img class="icon-img" src="{{ asset('images/'.$user->images) }}" alt="ユーザーアイコン">
+          @else
+            <img class="icon-img" src="{{ asset('storage/'.$user->images) }}" alt="ユーザーアイコン">
+          @endif
+        </li>
         <li class="search-name">{{$user->username }}</li>
         <!-- ログインユーザーがフォローしていたらフォロー解除ボタンを表示 -->
         @if (auth()->user()->isFollowing($user->id))

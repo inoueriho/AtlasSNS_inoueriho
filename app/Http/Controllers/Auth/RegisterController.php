@@ -58,7 +58,7 @@ class RegisterController extends Controller
                 'username' => $username,
                 'mail' => $mail,
                 'password' => bcrypt($password),
-                'icon_path' => 'public/images' . 'icon1.png' //初期アイコンはpublicから参照させる
+                // 'icon_path' => 'public/images' . 'icon1.png' //初期アイコンはpublicから参照させる
             ]);
                 //  sessionを使ってユーザ名を表示させる
                 $request->session()->put('username' , $username);

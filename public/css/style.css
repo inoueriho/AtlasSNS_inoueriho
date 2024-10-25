@@ -396,7 +396,6 @@ header h1 img {
 
 .search-form {
     border-bottom: solid 5px #727272;
-    margin-bottom: 20px;
 }
 
 .search-window {
@@ -436,6 +435,7 @@ header h1 img {
 
 
 .unfollow_btn {
+    display: inline-block;
     background-color: #dc143c;
     color: #fff;
     padding: 15px 25px;
@@ -443,6 +443,7 @@ header h1 img {
 }
 
 .follow_btn {
+    display: inline-block;
     background-color: #87cefa;
     color: #fff;
     padding: 15px 25px;
@@ -463,6 +464,7 @@ header h1 img {
     width: 50px;
     height: 50px;
     padding-right: 10px;
+    vertical-align: middle;
 }
 
 .search-name {

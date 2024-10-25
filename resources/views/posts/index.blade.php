@@ -11,6 +11,9 @@
         @if ($errors->has('post'))
           <p class="error-message">{{$errors->first('post')}}</p>
         @endif
+        @if ($errors->has('upPost'))
+              <p class="error-message">{{$errors->first('upPost')}}</p>
+              @endif
     </div>
     <button type="submit" class="post-btn"><img class="post-img" src="images/post.png" alt="送信"></button>
     <input type="hidden" name="id" value="Auth::user()->id">
@@ -19,7 +22,11 @@
 {!! Form::close() !!}
 @foreach($list as $list)
 <li class="post-content">
+  @if($list->user->images === 'icon1.png')
+  <img class="profile-icon" src="{{ asset('images/'.$list->user->images) }}" alt="プロフィールアイコン">
+  @else
   <img class="profile-icon" src="{{ asset('storage/'.$list->user->images) }}" alt="プロフィールアイコン">
+  @endif
   <div class="post-content1">
     <div class="post-content2">
       <p>{{$list->user->username}} </p>
@@ -49,9 +56,7 @@
           @csrf
           <div class="form-group">
             <textarea name="upPost" class="edit-post" value="">
-              @if ($errors->has('post'))
-              <p class="error-message">{{$errors->first('post')}}</p>
-              @endif
+
             </textarea>
             <input type="hidden" name="id" class="modal_id" value=""></input>
           </div>

@@ -23,10 +23,10 @@
   <div class="userprofile-content">
   @foreach($posts as $posts)
 <li class="userprofile_post">
-   @if($list->user->images === 'icon1.png')
-  <img class="profile-icon" src="{{ asset('images/'.$list->user->images) }}" alt="プロフィールアイコン">
+   @if($users->images === 'icon1.png')
+  <img class="profile-icon" src="{{ asset('images/'.$users->images) }}" alt="プロフィールアイコン">
   @else
-  <img class="profile-icon" src="{{ asset('storage/'.$list->user->images) }}" alt="プロフィールアイコン">
+  <img class="profile-icon" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
   @endif
   <div class="userprofile_post2">
   <div class="userprofile_post-content">

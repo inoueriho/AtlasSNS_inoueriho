@@ -47,7 +47,7 @@ class RegisterController extends Controller
                 'username' => ' required | min:2 | max:12',
                 'mail' => ' required | unique:users,mail| email | min:5 | max:40',
                 'password' => ' required | alpha_dash | min:8 | max:20',
-                'password_confirmation' => ' password | alpha | same:password | min:8 | max:20',
+                'password_confirmation' => ' required |string | alpha_num | min:8 | max:20',
                  ]);
 
             $username = $request->input('username');

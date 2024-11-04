@@ -35,7 +35,7 @@ class UsersController extends Controller
                 'username' => ' required | min:2 | max:12',
                 'mail' => 'required |email | min:5 | max:40 | unique:users,mail,'.Auth::user()->id.',id',
                 'password' => ' required | alpha_dash | min:8 | max:20',
-                'password_confirmation' => ' required | alpha | same:password | min:8 | max:20',
+                'password_confirmation' => ' required |string | alpha_num | min:8 | max:20',
                 'bio' => ' max:150 ',
                 'image' => 'image | mimes:jpg,png,bmp,gif,svg',
             ]);
@@ -44,6 +44,7 @@ class UsersController extends Controller
                 $mail = $request->input('mail');
                 $password = $request->input('password');
                 $bio = $request->input('bio');
+                // dd($bio);
 
                 User::where('id' , $id)->update([
                     'username' => $username,

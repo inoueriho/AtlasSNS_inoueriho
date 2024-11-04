@@ -74,23 +74,37 @@ label {
     padding-bottom: 10px;
 }
 
+/* .login-btn {
+    display: block;
+} */
+
 .login-btn input {
     background: none;
     border: none;
-    padding: 0;
     color: #fff;
-    display: flex;
-    justify-content: right;
-}
-
-.login-btn {
+    display: block;
     width: fit-content;
     background-color: #dc143c;
     padding: 10px 20px;
     border-radius: 5px;
     margin-left: auto;
-    /* margin autoで真ん中寄せになることの応用 */
+    /* display: flex;
+    justify-content: right; */
 }
+
+.login-btn input:hover {
+    cursor: pointer;
+}
+
+/* .login-btn {
+    width: fit-content;
+    background-color: #dc143c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: auto;
+    /* margin autoで真ん中寄せになることの応用
+}
+*/
 
 .login-register {
     padding-top: 30px;
@@ -128,20 +142,25 @@ label {
     padding: 0;
 }
 
-.register-btn {
+/* .register-btn {
     width: fit-content;
     background-color: #dc143c;
     padding: 10px 20px;
     border-radius: 5px;
     margin-top: 20px;
     margin-left: auto;
-}
+} */
 
 .register-btn input {
-    background: none;
+    width: fit-content;
+    background-color: #dc143c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: auto;
     border: none;
-    padding: 0;
     color: #fff;
+    display: block;
 }
 
 .register-btn input:hover {

@@ -19,19 +19,19 @@
     </div>
     <!-- パスワード -->
     <div class="ct-clock">
-      <label for="password">パスワード</label>
-      <input type="password" name="password" id="password">
-        @if ($errors->has('password'))
-        <p>{{$errors->first('password')}}</p>
-        @endif
+      {{ Form::label('パスワード') }}
+      @if ($errors->has('password'))
+      <p class="error-message">{{$errors->first('password')}}</p>
+      @endif
+    {{ Form::password('password',null,['class' => 'input']) }}
     </div>
     <!-- パスワードの確認 -->
     <div class="ct-clock">
-      <label for="pass-c">パスワード確認</label>
-      <input type="password" name="pass-c" id="pass-c">
-        @if ($errors->has('password_confirmation'))
-        <p>{{$errors->first('password_confirmation')}}</p>
-        @endif
+      {{ Form::label('パスワード確認') }}
+      @if ($errors->has('password_confirmation'))
+      <p class="error-message">{{$errors->first('password_confirmation')}}</p>
+      @endif
+    {{ Form::password('password_confirmation',null,['class' => 'input']) }}
     </div>
     <!-- 自己紹介文 -->
     <div class="ct-clock">

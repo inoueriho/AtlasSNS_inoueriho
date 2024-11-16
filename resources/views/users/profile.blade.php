@@ -20,18 +20,19 @@
     <!-- パスワード -->
     <div class="ct-clock">
       {{ Form::label('パスワード') }}
-      @if ($errors->has('password'))
+    {{ Form::password('password',null,['class' => 'input']) }}
+    @if ($errors->has('password'))
       <p class="error-message">{{$errors->first('password')}}</p>
       @endif
-    {{ Form::password('password',null,['class' => 'input']) }}
     </div>
     <!-- パスワードの確認 -->
     <div class="ct-clock">
       {{ Form::label('パスワード確認') }}
-      @if ($errors->has('password_confirmation'))
+
+    {{ Form::password('password_confirmation',null,['class' => 'input']) }}
+    @if ($errors->has('password_confirmation'))
       <p class="error-message">{{$errors->first('password_confirmation')}}</p>
       @endif
-    {{ Form::password('password_confirmation',null,['class' => 'input']) }}
     </div>
     <!-- 自己紹介文 -->
     <div class="ct-clock">

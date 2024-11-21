@@ -36,7 +36,11 @@
               <li class="nav-content"><a href="/logout">ログアウト</a></li>
             </ul>
         </nav>
-            <img src="{{ asset('storage/'.Auth::user()->images) }}">
+            @if(Auth::user()->images === 'icon1.png')
+              <img class="profile-icon" src="{{ asset('images/'.Auth::user()->images) }}" alt="プロフィールアイコン">
+            @else
+              <img class="profile-icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
+            @endif
         </div>
         </div>
     </header>

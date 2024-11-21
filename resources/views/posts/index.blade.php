@@ -6,7 +6,11 @@
 <div class="post-container">
   <div class="post">
     <div class="post-right">
-      <img class="profile-icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
+      @if($list === 'icon1.png')
+        <img class="profile-icon" src="{{ asset('images/'.Auth::user()->images) }}" alt="プロフィールアイコン">
+      @else
+        <img class="profile-icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">
+      @endif
       <input class="post-form" type="text" name="post" placeholder="投稿内容を入力してください。">
         @if ($errors->has('post'))
           <p class="error-message">{{$errors->first('post')}}</p>

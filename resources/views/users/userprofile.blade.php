@@ -1,7 +1,11 @@
 @extends('layouts.login')
 @section('content')
 <div class="user-profile">
-  <img class="userprofile-icon1" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
+  @if($users->images === 'icon1.png')
+    <img class="userprofile-icon1" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
+  @else
+    <img class="userprofile-icon1" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
+  @endif
   <div class="userprofile_user">
     <div class="userprofile1">
       <p class="userprofile-hd">ユーザー名</p>

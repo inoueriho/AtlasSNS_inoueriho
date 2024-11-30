@@ -26,7 +26,8 @@ class UsersController extends Controller
     //     $user->image = str_replace('public/','',$filePath);
     //     $user->save();
     //    }
-
+    $user = Auth::user();
+    dd($user);
        return view('users.profile');
     }
 
@@ -60,6 +61,7 @@ class UsersController extends Controller
         $user->images = str_replace('public/','',$filePath);
         $user->save();
        }
+
                 return redirect('/top');
         }
         public function search(Request $request){

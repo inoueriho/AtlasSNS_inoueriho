@@ -2,7 +2,7 @@
 @section('content')
 <div class="user-profile">
   @if($users->images === 'icon1.png')
-    <img class="userprofile-icon1" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
+    <img class="userprofile-icon1" src="{{ asset('images/'.$users->images) }}" alt="プロフィールアイコン">
   @else
     <img class="userprofile-icon1" src="{{ asset('storage/'.$users->images) }}" alt="プロフィールアイコン">
   @endif

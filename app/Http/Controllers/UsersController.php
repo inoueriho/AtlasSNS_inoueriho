@@ -26,9 +26,10 @@ class UsersController extends Controller
     //     $user->image = str_replace('public/','',$filePath);
     //     $user->save();
     //    }
-    $user = Auth::user();
-    dd($user);
-       return view('users.profile');
+    $users = Auth::user();
+    // dd($user);
+       return view('users.profile',['users'=>$users]);
+                                    //↑returnで変数一緒に送る！
     }
 
         public function update(Request $request) {

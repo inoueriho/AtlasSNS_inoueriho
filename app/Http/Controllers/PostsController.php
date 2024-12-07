@@ -13,6 +13,7 @@ class PostsController extends Controller
 {
     //
     public function index(Post $post){
+        $users = Auth::user();
         $list = Post::orderBy('created_at','asc')->first();
         $list = Post::get();
 
@@ -22,7 +23,7 @@ class PostsController extends Controller
 
         // dd($following_id);
 
-        return view('posts.index',['list'=>$list]);
+        return view('posts.index',['list'=>$list],['users'=>$users]);
     }
     public function postCreate(Request $request){
         $validated = $request->validate([

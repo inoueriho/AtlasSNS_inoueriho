@@ -5,7 +5,7 @@
 @csrf
 {{Form::hidden('id',Auth::user()->id)}}
 <div class="profile-container">
-  @if($user->images === 'icon1.png')
+  @if($users->images === 'icon1.png')
     <img class="profile-update_icon" src="{{ asset('images/'.Auth::user()->images) }}" alt="プロフィールアイコン">
   @else
     <img class="profile-update_icon" src="{{ asset('storage/'.Auth::user()->images) }}" alt="プロフィールアイコン">

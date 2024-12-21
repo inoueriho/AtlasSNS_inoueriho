@@ -142,7 +142,9 @@ return [
         'password_confirmation' => 'パスワード確認',
         'mail' => 'メールアドレス',
         'post' => '投稿内容',
-        'upPost' => '投稿内容'
+        'upPost' => '投稿内容',
+        'bio' => '紹介文',
+        'image' => 'アイコン画像'
 
 ],
 

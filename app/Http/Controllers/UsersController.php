@@ -38,7 +38,7 @@ class UsersController extends Controller
                 'mail' => 'required |email | min:5 | max:40 | unique:users,mail,'.Auth::user()->id.',id',
                 'password' => ' required | alpha_dash | min:8 | max:20',
                 'password_confirmation' => ' required |string | alpha_num | min:8 | max:20',
-                'bio' => ' max:150 ',
+                'bio' => 'string | min:0 | max:150 ',
                 'image' => 'image | mimes:jpg,png,bmp,gif,svg',
             ]);
                 $id =$request->input('id');
@@ -54,7 +54,7 @@ class UsersController extends Controller
                     'password' => Hash::make($request->password),
                     'bio' => $bio,
                 ]);
-                   $iconImg = $request->file('icon-image');
+                   $iconImg = $request->file('image');
                 //    dd($iconImg);
        if($iconImg){
         $user = Auth::user();
